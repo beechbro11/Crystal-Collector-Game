@@ -2,8 +2,9 @@
 <html>
 <head>
 	<title>Crystal Collector</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="reset.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -31,17 +32,8 @@
 			</p>
 		</div>
 	</div>
-
-
-	<div classs= "row">
-		<div id= "col-md-12">
-			<h4 id= "wins" >Wins:</h4>
-    		<h4 id ="loses">Loses: </h4>
-		</div>
-	</div>
-
 	<div id="row">
-		<div id="col-md-6">
+		<div id="col-md-3">
 			<div class="panel panel-default">
   				<div class="panel-heading">
     				<h3 class="panel-title">Your Number</h3>
@@ -52,7 +44,7 @@
 			</div>
 		</div>
 	
-		<div id= "col-md-6">
+		<div id= "col-md-3">
 			<div class="panel panel-default">
   				<div class="panel-heading">
     				<h3 class="panel-title">Random Number</h3>
@@ -61,20 +53,40 @@
   				</div>
 			</div>
 		</div>
+		<div id="col-md-3">
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">Your Number</h3>
+  				</div>
+  				<div class="panel-body" id='wins'>
+
+  				</div>
+			</div>
+		</div>
+		<div id="col-md-3">
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">Your Number</h3>
+  				</div>
+  				<div class="panel-body" id='loses'>
+
+  				</div>
+			</div>
+		</div>
 	</div>
 	<div class= "container">
 		<div class="row">
 			<div class ="col-md-3">
-				<div id = "pic1"><img src="RedCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+				<div id = "pic1"><img src="RedCry.jpg" class = "img-rounded" alt="Cinque Terre" width="160" height="160"></div>
 			</div>
 			<div class ="col-md-3">
-				<div id = "pic2"><img src="PurpleCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+				<div id = "pic2"><img src="PurpleCry.jpg" class = "img-rounded" alt="Cinque Terre" width="160" height="160"></div>
 			</div>
 			<div class ="col-md-3">
-				<div id = "pic3"><img src="GreenCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+				<div id = "pic3"><img src="GreenCry.jpg" class = "img-rounded" alt="Cinque Terre" width="160" height="160"></div>
 			</div>
 			<div class ="col-md-3">
-				<div id = "pic4"><img src="BlueCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+				<div id = "pic4"><img src="BlueCry.jpg" class = "img-rounded" alt="Cinque Terre" width="160" height="160"></div>
 			</div>
 		</div>
 	</div>
@@ -98,8 +110,6 @@
     		for (var i=0; i< numbers.length; i++){
       			var imageCrystal = $('.container');
 				imageCrystal.attr('data-num', numbers[i]);
-     			imageCrystal.attr('src', 'BlueCry.jpg');
-     			imageCrystal.attr('src', 'RedCry.jpg');
       			imageCrystal.attr('alt', 'crystals');
       			imageCrystal.addClass('crystalImage');
       			$('#crystals').append(imageCrystal);
