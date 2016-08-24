@@ -3,6 +3,7 @@
 <head>
 	<title>Crystal Collector</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -61,14 +62,22 @@
 			</div>
 		</div>
 	</div>
-
-	<div id= "row">
-		<div id= "col-md-12">
-			<div id= "crystals"></div>
+	<div class= "container">
+		<div class="row">
+			<div class ="col-md-3">
+				<div id = "pic1"><img src="RedCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+			</div>
+			<div class ="col-md-3">
+				<div id = "pic2"><img src="PurpleCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+			</div>
+			<div class ="col-md-3">
+				<div id = "pic3"><img src="GreenCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+			</div>
+			<div class ="col-md-3">
+				<div id = "pic4"><img src="BlueCry.jpg" class = "img-rounded" alt="Cinque Terre" width="200" height="200"></div>
+			</div>
 		</div>
 	</div>
-
-	<div>
 	<button type="button" class="btn btn-success">New Game</button>
 	</div>
 
@@ -87,7 +96,7 @@
     		console.log(numbers);
     		$('#rand').html(numberToGuess);
     		for (var i=0; i< numbers.length; i++){
-      			var imageCrystal = $('<img>');
+      			var imageCrystal = $('.container');
 				imageCrystal.attr('data-num', numbers[i]);
      			imageCrystal.attr('src', 'BlueCry.jpg');
      			imageCrystal.attr('src', 'RedCry.jpg');
