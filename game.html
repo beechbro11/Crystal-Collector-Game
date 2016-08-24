@@ -3,7 +3,7 @@
 <head>
 	<title>Crystal Collector</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/style.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
@@ -32,7 +32,7 @@
 	</div>
 
 
-	<div id= "row">
+	<div classs= "row">
 		<div id= "col-md-12">
 			<h4 id= "wins" >Wins:</h4>
     		<h4 id ="loses">Loses: </h4>
@@ -41,11 +41,24 @@
 
 	<div id="row">
 		<div id="col-md-6">
-			<h2 id= yourNumber>Your Number: </h2>
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">Your Number</h3>
+  				</div>
+  				<div class="panel-body" id='number'>
+
+  				</div>
+			</div>
 		</div>
+	
 		<div id= "col-md-6">
-			<h2 id = rand> RandomNumber:</h2>
-			<a href="BlueCry.jpg"></a>
+			<div class="panel panel-default">
+  				<div class="panel-heading">
+    				<h3 class="panel-title">Random Number</h3>
+  				</div>
+  				<div class="panel-body" id="rand">
+  				</div>
+			</div>
 		</div>
 	</div>
 
@@ -66,8 +79,13 @@
     		var wins =0;
     		var Loses = 0;
     		var counter = 0;
-    		var numbers = [10, 5, 3, 7];
-    		$('#rand').append(numberToGuess);
+    		var numbers = [];
+    		var lock = 0;
+    		for (var i=0, t=4; i<t; i++) {
+    			numbers.push(Math.round(Math.random() * 20))
+    		}
+    		console.log(numbers);
+    		$('#rand').html(numberToGuess);
     		for (var i=0; i< numbers.length; i++){
       			var imageCrystal = $('<img>');
 				imageCrystal.attr('data-num', numbers[i]);
@@ -79,15 +97,26 @@
       		}
       		$('.crystalImage').on('click', function(){
       			counter = counter + parseInt($(this).data('num'));
-      
-      			$('#yourNumber').text(counter);
+      			
+      			$('#number').text(counter);
       			if (counter == numberToGuess){
         			alert('You won!!!!');
         			wins++
-        			$('wins').html(wins);
+        			lock = 1;
+        			$('#wins').html(wins);
+        			
 
       			}else if( counter > numberToGuess){
         			alert('You lost!');
+        			Loses++;
+        			lock = 1;
+        			$('#loses').append(Loses);
+      			}
+      			console.log(lock);
+      			if( lock ==1){
+    				$(this).unbind('click').attr('disabled', 'disabled');
+				
+					console.log(lock);
       			}
     		});
       		$('.btn').on('click', function(event) {

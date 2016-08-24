@@ -3,3 +3,12 @@
 html {
   background-image: url('background.png');
 }
+
+.panel-default {
+    border-color: #ddd;
+    width: 175px;
+    float: left;
+
+ }
+
+ console.log(hello)
