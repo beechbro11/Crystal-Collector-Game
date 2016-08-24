@@ -41,7 +41,7 @@
     <div id="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Your Number</h3>
+          <h3 class="panel-title">Won</h3>
         </div>
         <div class="panel-body" id='wins'></div>
       </div>
@@ -49,7 +49,7 @@
     <div id="col-md-3">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title">Your Number</h3>
+          <h3 class="panel-title">Lost</h3>
         </div>
         <div class="panel-body" id='loses'></div>
       </div>
@@ -71,80 +71,7 @@
       </div>
     </div>
   </div><button class="btn btn-success" type="button">New Game</button>
-  <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    // Moved variables to global scope
-    var numberToGuess = Math.floor((Math.random() * 100) + 20);
-    var wins =0;
-    var Loses = 0;
-    var counter = 0;
-    var numbers = [];
-    var lock = 0;
-
-    // wrap game initialization in it's own function
-    function newGame(){
-      // clear the crystals div in the event this is not the first game
-      $('#crystals').empty();
-      // reset counter to zero if it's not
-      counter = 0;
-      // reset numbers array
-      numbers = [];
-      console.log(numbers);
-      // iterate through random numbers to assign to the array
-      for (var i=0, t=4; i<t; i++) {
-        numbers.push(Math.round(Math.random() * 20))
-      }
-
-      // dynamically create new crystal images
-      for (var i=0; i< numbers.length; i++){
-        var imageCrystal = $('.container');
-        imageCrystal.attr('data-num', numbers[i]);
-        imageCrystal.attr('alt', 'crystals');
-        imageCrystal.addClass('crystalImage');
-        $('#crystals').append(imageCrystal);
-      }
-      // new number to guess
-      numberToGuess = Math.floor((Math.random() * 100) + 20);
-
-      // update the dom
-      $('#number').text(counter);
-      $('#rand').html(numberToGuess);
-    }
-
-    // doc ready function
-    $( document ).ready(function() {
-      // initialize a new game on doc ready
-      newGame();
-
-      // change click event to handle dynamically created .crystalImages
-      $(document).on('click', '.crystalImage', function(){
-        // original game logic
-        counter = counter + parseInt($(this).data('num'));
-        $('#number').text(counter);
-        if (counter == numberToGuess){
-          alert('You won!!!!');
-          wins++
-          lock = 1;
-          $('#wins').html(wins);
-        }else if( counter > numberToGuess){
-          alert('You lost!');
-          Loses++;
-          lock = 1;
-          $('#loses').append(Loses);
-        }
-        console.log(lock);
-        if( lock ==1){
-          $(this).unbind('click').attr('disabled', 'disabled');
-          console.log(lock);
-        }
-      });
-
-      $('.btn').on('click', function(event) {
-        // rerun the new game function on click of the .btn
-        newGame();
-      });
-
-    });
-  </script>
+ <script type="text/javascript" src="assets/javascript/game.js"></script>
+  
 </body>
 </html>

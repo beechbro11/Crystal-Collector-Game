@@ -1,14 +1,25 @@
-
-
-html {
+body {
   background-image: url('background.png');
+  font-size: 20px;
 }
-
 .panel-default {
     border-color: #ddd;
     width: 175px;
     float: left;
-
  }
-
- console.log(hello)
+.h1, h1 {
+    font-size: 53px;
+    text-align: center;
+}
+p {
+    margin: 0 0 10px;
+    text-align: center;
+}
+.panel > .panel-heading {
+    background-image: none;
+    background-color: #3366ff;
+    color: white;
+}
+.panel > .panel-body {
+	background-color: #d9d9d9;
+}
