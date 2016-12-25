@@ -1,5 +1,5 @@
 body {
-  background-image: url('background.png');
+  background-image: url('../images/background.png');
   font-size: 20px;
 }
 .panel-default {
@@ -22,4 +22,10 @@ p {
 }
 .panel > .panel-body {
 	background-color: #d9d9d9;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    /* height: auto; */
 }

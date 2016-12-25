@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Crystal Collector</title>
-  <link href="reset.css" rel="stylesheet" type="text/css">
+<!--   <link href="./assets/css/reset.css" rel="stylesheet" type="text/css"> -->
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/reset.css" rel="stylesheet" type="text/css">
+  <link href="./assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <div class="row">
@@ -21,6 +22,7 @@
       - Each time when the game starts, the game will change the values of each crystal.</p>
     </div>
   </div>
+  <button class="btn btn-success" type="button">New Game</button>
   <div class="row">
     <div class="col-md-3">
       <div class="panel panel-default">
@@ -58,20 +60,19 @@
   <!-- <div class="container"> -->
   <div class = "row"></div>
     <div class="row">
-      <div class="col-md-3">
-        <div id="pic1"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="RedCry.jpg" width="160"></div>
+      <div class="col-md-3" id = "pictures">
+        <div id="pic1"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="./assets/images/RedCry.jpg" width="160"></div>
       </div>
       <div class="col-md-3">
-        <div id="pic2"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="PurpleCry.jpg" width="160"></div>
+        <div id="pic2"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="./assets/images/PurpleCry.jpg" width="160"></div>
       </div>
       <div class="col-md-3">
-        <div id="pic3"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="GreenCry.jpg" width="160"></div>
+        <div id="pic3"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="./assets/images/GreenCry.jpg" width="160"></div>
       </div>
       <div class="col-md-3">
-        <div id="pic4"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="BlueCry.png" width="160"></div>
+        <div id="pic4"><img alt="Cinque Terre" class="img-responsive crystalSelector" height="160" src="./assets/images/BlueCry.jpg" width="160"></div>
       </div>
     </div>
-  </div><button class="btn btn-success" type="button">New Game</button>
   <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     var numberToGuess = Math.floor((Math.random() * 100) + 20);
@@ -80,6 +81,7 @@
     var counter = 0;
     var numbers = [];
     var lock = 0;
+    console.log(numbers + " global stored ")
 
     // wrap game initialization in it's own function
     function newGame(){
@@ -90,13 +92,11 @@
       // reset numbers array
       numbers = [];
 
-
-      
-      // iterate through random numbers to assign to the array
       for (var i=0, t=4; i<t; i++) {
         numbers.push(Math.round(Math.random() * 20))
       }
-      console.log(numbers);
+      console.log(numbers + " crystal numbers!");
+      
       // dynamically create new crystal images
       for (var i=0; i< numbers.length; i++){
         var imageCrystal = $('.crystalSelector');
@@ -118,6 +118,7 @@
     $( document ).ready(function() {
       // initialize a new game on doc ready
       newGame();
+
 
       // change click event to handle dynamically created .crystalImages
       $(document).on('click', '.crystalImage', function(){
