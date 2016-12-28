@@ -3,4 +3,4 @@
 Under Construction :
 ![alt text](assets/images/cone.png "Logo Title Text 1")
 
-[link](https://nowels-crystal-collector.herokuapp.com/)
+Link to the Crystal Collector App : [link](https://nowels-crystal-collector.herokuapp.com/)
